@@ -41,6 +41,7 @@ ARG version
 FROM almalinux:${version:-8}
 ARG AUTHOR=Kithu
 ARG TRAINING=Devops
-ENV BOOK=Autobiography
+ARG BOOK=Autobiography
+ENV BOOK=${BOOK}
 RUN echo "author is : $AUTHOR ; training is : $TRAINING ; book is : ${BOOK}"
 CMD ["sleep","100"]
