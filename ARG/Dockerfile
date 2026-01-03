@@ -20,16 +20,27 @@
 # ( docker build -t arg:v1 --build-arg version=9 --build-arg AUTHOR=kithu --build-arg TRAINING=devops . )
 
 
-#case-3
-ARG version
-FROM almalinux:${version:-8}
-ARG AUTHOR=Kithu
-ARG TRAINING=Devops
-RUN echo "author is : $AUTHOR ; training is : $TRAINING"
-CMD ["sleep","100"]
+# #case-3
+# ARG version
+# FROM almalinux:${version:-8}
+# ARG AUTHOR=Kithu
+# ARG TRAINING=Devops
+# RUN echo "author is : $AUTHOR ; training is : $TRAINING"
+# CMD ["sleep","100"]
 
 ## ( FROM almalinux:${version:-8} )---> if user not mention anything printing this default version
 # ( docker build -t arg:v1 . ) ---> this command will build with default version 8 and it will print other arguments like Kithu and Devops
 # ( docker build -t arg:v1 --build-arg version=9 . ) ---> this will override the version with user recommandation version=9
 ## ( ARG AUTHOR=Kithu ) --->like this we are passing our default arguments other than version
 ## (ARG TRAINING=Devops )
+
+
+
+#case-4
+ARG version
+FROM almalinux:${version:-8}
+ARG AUTHOR=Kithu
+ARG TRAINING=Devops
+ENV BOOK=Autobiography
+RUN echo "author is : $AUTHOR ; training is : $TRAINING ; book is : ${BOOK}"
+CMD ["sleep","100"]
