@@ -20,7 +20,7 @@
 # ( docker build -t arg:v1 --build-arg version=9 --build-arg AUTHOR=kithu --build-arg TRAINING=devops . )
 
 
-case-3
+#case-3
 ARG version
 FROM almalinux:${version:-8}
 ARG AUTHOR
