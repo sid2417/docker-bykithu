@@ -23,9 +23,13 @@
 #case-3
 ARG version
 FROM almalinux:${version:-8}
-ARG AUTHOR
-ARG TRAINING
+ARG AUTHOR=Kithu
+ARG TRAINING=Devops
 RUN echo "author is : $AUTHOR ; training is : $TRAINING"
 CMD ["sleep","100"]
 
 ## ( FROM almalinux:${version:-8} )---> if user not mention anything printing this default version
+# ( docker build -t arg:v1 . ) ---> this command will build with default version 8
+# ( docker build -t arg:v1 --build-arg version=9 . ) ---> this will override the version with user recommandation version=9
+## ( ARG AUTHOR=Kithu ) --->like this we are passing our default arguments other than version
+## (ARG TRAINING=Devops )
