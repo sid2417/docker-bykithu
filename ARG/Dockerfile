@@ -10,9 +10,22 @@
 
 
 # case-2
+# ARG version
+# FROM almalinux:${version}
+# ARG AUTHOR
+# ARG TRAINING
+# RUN echo "author is : $AUTHOR ; training is : $TRAINING"
+# CMD ["sleep","100"]
+
+# ( docker build -t arg:v1 --build-arg version=9 --build-arg AUTHOR=kithu --build-arg TRAINING=devops . )
+
+
+case-3
 ARG version
-FROM almalinux:${version}
+FROM almalinux:${version:-8}
 ARG AUTHOR
 ARG TRAINING
 RUN echo "author is : $AUTHOR ; training is : $TRAINING"
 CMD ["sleep","100"]
+
+## ( FROM almalinux:${version:-8} )---> if user not mention anything printing this default version
