@@ -14,4 +14,5 @@ ARG version
 FROM almalinux:${version}
 ARG AUTHOR
 ARG TRAINING
+RUN echo "author is : $AUTHOR ; training is : $TRAINING"
 CMD ["sleep","100"]
