@@ -45,3 +45,11 @@ ARG BOOK=Autobiography
 ENV BOOK=${BOOK}
 RUN echo "author is : $AUTHOR ; training is : $TRAINING ; book is : ${BOOK}"
 CMD ["sleep","100"]
+
+
+# ARG is accessing in build time only
+# ENV is accessing in build time and run time
+
+# ( docker build -t arg:1.0 --build-arg BOOK=LifeLesson . )
+# using above command we are passing the arument and accessing in environment variable
+# In case-4 ARG BOOK=Autobiography is default value and we are override that value using above command  --build-arg BOOK=LifeLesson then this BOOK=LifeLesson accessing as ENV inside the container
