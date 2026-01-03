@@ -20,4 +20,7 @@ ENTRYPOINT ["ping","-c5"]
 # for better results we mix CMD and ENTRYPOINT 
 # here CMD is passing default arguments
 # and ENTRYPOINT is act as a command
-#  
+# ( docker run entrypoint:1.0 yahoo.com ) ---> this command is overide the defult value in CMD
+# ( docker run entrypoint:1.0 ) ---> This will print default value in CMD
+
+
